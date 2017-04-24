@@ -18,7 +18,7 @@
   <h1>Liste des randonnées</h1>
   <!-- Afficher la liste des randonnées -->
 
-  <table>
+  <table border=1px>
 
     <tr>
       <th>name</th>
@@ -29,7 +29,7 @@
     </tr>
     <?php
     foreach ($dbh->query('SELECT * from hiking') as $row){
-      echo '<tr>.$row["name"]." ".$row["distance"]."</tr> ' ;
+      echo utf8_encode('<tr><td>'.$row["name"].'</td><td>'.$row["difficulty"].'</td><td>'.$row["distance"].'</td><td>'.$row["duration"].'</td><td>'.$row["height_difference"].'</td></tr>') ;
     }
     ?>
   </table>
