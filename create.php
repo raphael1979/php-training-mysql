@@ -17,11 +17,11 @@
 		<div>
 			<label for="difficulty">Difficulté</label>
 			<select name="difficulty">
-				<option value="très facile">Très facile</option>
+				<option value="tres facile">Très facile</option>
 				<option value="facile">Facile</option>
 				<option value="moyen">Moyen</option>
 				<option value="difficile">Difficile</option>
-				<option value="très difficile">Très difficile</option>
+				<option value="tres difficile">Très difficile</option>
 			</select>
 		</div>
 		
@@ -40,7 +40,7 @@
 		<button type="submit" name="button">Envoyer</button>
 		<?php 
 		try{
-			$dbh = new PDO('mysql:host=localhost;dbname=colyseum','root', 'root');
+			$dbh = new PDO('mysql:host=localhost;dbname=reunion_island','root', 'root');
 		// $dbh = null;
 		}catch(PDOException $e){
 			print"Error !:".$e->getMessage()."<br/>";
@@ -49,15 +49,20 @@
 
 		$name = $_POST['name'];
 		$difficulty = $_POST['difficulty'];
-		$distance = (int)$_POST['distance'];
-		$duration = (int)$_POST['duration'];
-		$height_difference = (int)$_POST['height_difference'];
+		$distance = intval($_POST['distance']);
+		$duration = $_POST['duration'];
+		$height_difference = intval($_POST['height_difference']);
 
-		$sql = 'INSERT INTO name, difficulty, distance, duration, height_difference FROM hiking WHERE name = :name AND difficulty = :difficulty AND distance = :distance AND duration = :duration AND height_difference = :height_difference';
-		$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-		$sth->execute(array(':name' => $name, ':difficulty' => $difficulty, ':distance' => $distance, ':duration' => $duration, ':height_difference' => $height_difference));
-
-
+		$sql = "INSERT INTO hiking(name,difficulty,distance,duration,height_difference) VALUES(:name,:difficulty,:distance,:duration,:height_difference) ;";
+		$sth = $dbh->prepare($sql);
+		$res=$sth->execute(array(':name' => $name,':difficulty' => $difficulty,':distance' => $distance,':duration' => $duration,':height_difference' => $height_difference));
+		
+		if(!$res){
+			echo "la ya error";
+		}else{
+			echo "ajout d'une randonnée";
+			$dbh->close();
+		}
 
 
 		?>

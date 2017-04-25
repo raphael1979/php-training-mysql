@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
+  <a href="create.php">ajouter une rando</a>
   <?php 
   try{
     $dbh = new PDO('mysql:host=localhost;dbname=reunion_island','root', 'root');
