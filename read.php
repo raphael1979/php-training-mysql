@@ -30,7 +30,7 @@
     </tr>
     <?php
     foreach ($dbh->query('SELECT * FROM hiking') as $row){
-      echo ('<tr><td>'.$row["name"].'</td><td>'.$row["difficulty"].'</td><td>'.$row["distance"].'</td><td>'.$row["duration"].'</td><td>'.$row["height_difference"].'</td></tr>') ;
+      echo ('<tr><td><a href="update.php?id='.$row['id'].'">'.$row["name"].'</a></td><td>'.$row["difficulty"].'</td><td>'.$row["distance"].'</td><td>'.$row["duration"].'</td><td>'.$row["height_difference"].'</td></tr>') ;
     }
     ?>
   </table>

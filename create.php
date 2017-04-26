@@ -40,7 +40,7 @@
 		<button type="submit" name="button">Envoyer</button>
 		<?php 
 		try{
-			$dbh = new PDO('mysql:host=localhost;dbname=reunion_island','root', 'root');
+			$dbh = new PDO('mysql:host=localhost;dbname=reunion_island;charset=utf8','root', 'root');
 		// $dbh = null;
 		}catch(PDOException $e){
 			print"Error !:".$e->getMessage()."<br/>";
