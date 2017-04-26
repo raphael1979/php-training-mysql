@@ -39,4 +39,4 @@ VALUES ('Le sommet du Piton Béthoune par le tour du bonnet de Prêtre', 'très 
 ('Le sentier des Sources entre Cilaos et Bras sec', 'facile', 5.9, '01:15:00', 300),
 ('De Bras Sec au Bras de Cilaos par Palmiste Rouge', 'moyen', 16.5, '05:30:00', 1000),
 ('La grande cascade du Bras Rouge depuis le pont sur la route RD242', 'moyen', 1.5, '01:30:00', 240),
-('L\'îlet Sopurces et la Ravine Bananes depuis l\'îlet à Cordes', 'difficile', 6.4, '05:00:00', 450);
+('L\'îlet Sources et la Ravine Bananes depuis l\'îlet à Cordes', 'difficile', 6.4, '05:00:00', 450);

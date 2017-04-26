@@ -9,7 +9,7 @@
   <a href="create.php">ajouter une rando</a>
   <?php 
   try{
-    $dbh = new PDO('mysql:host=localhost;dbname=reunion_island','root', 'root');
+    $dbh = new PDO('mysql:host=localhost;dbname=reunion_island;charset=utf8','root', 'root');
     // $dbh = null;
   }catch(PDOException $e){
     print"Error !:".$e->getMessage()."<br/>";
@@ -29,8 +29,8 @@
       <th>height_difference</th>
     </tr>
     <?php
-    foreach ($dbh->query('SELECT * from hiking') as $row){
-      echo utf8_encode('<tr><td>'.$row["name"].'</td><td>'.$row["difficulty"].'</td><td>'.$row["distance"].'</td><td>'.$row["duration"].'</td><td>'.$row["height_difference"].'</td></tr>') ;
+    foreach ($dbh->query('SELECT * FROM hiking') as $row){
+      echo ('<tr><td>'.$row["name"].'</td><td>'.$row["difficulty"].'</td><td>'.$row["distance"].'</td><td>'.$row["duration"].'</td><td>'.$row["height_difference"].'</td></tr>') ;
     }
     ?>
   </table>
